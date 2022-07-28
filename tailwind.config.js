@@ -1,13 +1,21 @@
 const plugin = require('tailwindcss/plugin');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}', './layouts/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+
   theme: {
     darkMode: 'class',
-
+    
+    fontFamily: {
+      sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      display: ['Lexend', ...defaultTheme.fontFamily.sans],
+    },
     extend: {
       colors: {
         'qh-red': '#b9131a',
+        'light-pink': '#fff5f5',
       },
     },
     container: {
@@ -16,16 +24,9 @@ module.exports = {
     screens: {
       xs: '420px',
       sm: '640px',
-      // => @media (min-width: 640px) { ... }
-
       md: '768px',
-      // => @media (min-width: 768px) { ... }
-
       lg: '1024px',
-      // => @media (min-width: 1024px) { ... }
-
       xl: '1280px',
-      // => @media (min-width: 1280px) { ... }
     },
   },
 
